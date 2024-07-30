@@ -10,7 +10,7 @@ class CategoryAdmin(admin.ModelAdmin):
 class ContactAdmin(admin.ModelAdmin):
     list_display = 'id', 'first_name', 'last_name', 'phone',
     ordering = '-id',
-    list_per_page = 10
+    list_per_page = 100
     # list_filter = 'created_date',
     search_fields = 'id', 'first_name', 'last_name',
     list_max_show_all = 100
