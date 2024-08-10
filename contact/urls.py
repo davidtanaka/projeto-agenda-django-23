@@ -9,5 +9,6 @@ urlpatterns = [
     path('', views.index, name='index'),
 
     # contact (CRUD)
-    path('contact/<int:contact_id>/detail', views.contact, name='contact'),
+    path('contact/<int:contact_id>/', views.contact, name='contact'),
+    path('contact/create/', views.create, name='create'),
 ]
