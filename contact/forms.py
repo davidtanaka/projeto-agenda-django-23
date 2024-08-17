@@ -7,7 +7,7 @@ class ContactForm(forms.ModelForm):
     first_name = forms.CharField(
         widget=forms.TextInput(
             attrs={
-                'placeholder': 'Aqui venho do init'
+                'placeholder': 'Digite seu primeiro nome'
             }
         ),
         label='Primeiro nome',
