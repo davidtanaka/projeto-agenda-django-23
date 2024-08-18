@@ -4,15 +4,18 @@ from django import forms
 from . import models
 
 class ContactForm(forms.ModelForm):
+    picture = forms.ImageField(
+        widget=forms.FileInput(
+            attrs={
+                'accept': 'image/*'
+            }
+        )
+    )
     first_name = forms.CharField(
         widget=forms.TextInput(
             attrs={
                 'placeholder': 'Digite seu primeiro nome'
-            }
-        ),
-        label='Primeiro nome',
-        help_text='Texto de ajuda para seu usuário'
-    )
+            }))
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
@@ -23,7 +26,8 @@ class ContactForm(forms.ModelForm):
     class Meta:
         model = models.Contact
         fields = 'first_name', 'last_name', 'phone',\
-                'email', 'description', 'phone'
+                'email', 'description', 'phone',\
+                'picture'
         widgets = {
             'first_name': forms.TextInput(
                 attrs={
