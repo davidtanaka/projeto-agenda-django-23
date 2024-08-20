@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from contact.forms import RegisterForm
 
@@ -11,6 +11,7 @@ def register(request):
 
         if form.is_valid():
             form.save()
+            # return redirect('user:register')
 
     return render(
         request,
