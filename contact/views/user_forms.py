@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-
+from django.contrib import messages # type: ignore
 from contact.forms import RegisterForm
 
 
@@ -11,7 +11,8 @@ def register(request):
 
         if form.is_valid():
             form.save()
-            # return redirect('user:register')
+            messages.success(request, 'Usuário registrado')
+            return redirect('contact:index')
 
     return render(
         request,
